@@ -1,0 +1,44 @@
+<div class="sidebar-area">
+    <div class="widgets-searchbox">
+        <form id="widgets-searchbox">
+            <input id="q" class="input-field" type="text" placeholder="Search">
+            <button class="widgets-searchbox-btn" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+    <div class="widgets-area">
+        <div class="widgets-item pt-0">
+            <h2 class="widgets-title mb-4">Categories</h2>
+            <ul class="widgets-category">
+                <li>
+                    <a class="nav-item" href="#" id="0">
+                        <i class="fa fa-chevron-right"></i>
+                        All
+                    </a>
+                </li>
+                {% for category in categories %}
+                <li>
+                    <a class="nav-item" href="#" id="{{ category.id }}">
+                        <i class="fa fa-chevron-right"></i>
+                        {{ category.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="widgets-item widgets-filter">
+            <form class="price-filter">
+            <h2 class="widgets-title mb-4">Price Filter</h2>
+            <div class="price-filter">
+                <label for="min">From {{min_price}}</label><input id="min" type="number" placeholder="min price" min="{{ min_price }}" max="{{ max_price }}" value="{{ min_price }}"/>
+                <label for="max">To {{max_price}}</label><input id="max" type="number" placeholder="max price" max="{{ max_price }}" min="{{ min_price }}" value="{{ max_price }}"/>
+                <button type="submit">GET</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
